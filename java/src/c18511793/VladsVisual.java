@@ -2,6 +2,7 @@ package c18511793;
 import ddf.minim.AudioBuffer;
 import ie.tudublin.*;
 import processing.core.PApplet;
+import processing.opengl.Texture;
 import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
@@ -44,6 +45,7 @@ public class VladsVisual extends Visual
 
     public void draw()
     {
+
         calculateAverageAmplitude();
         try
         {
@@ -59,29 +61,41 @@ public class VladsVisual extends Visual
         lights();
         stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
 
-        camera(500, -500, -500, 1, -50, -50, 100, 1, 100);
+        camera(500, -500, -500, 1, 50, 50, 100, 1, 100);
 
-        rot += getAmplitude() / 3.5f;
-
+        rot += getAmplitude() / 2f;
+    
         rotateY(rot);
         float[] bands = getSmoothedBands();
         for(int i = 0; i < bands.length; i++)
         {
-            float theta = map(i, 0, bands.length, 0, TWO_PI);
+            float theta = map(i, 0, bands.length, 0, TWO_PI * 3);
             stroke(map(i,0, bands.length, 0,255), 255, 255);
-
             float x = sin(theta) * radius;
             float z = cos(theta) * radius;
             float h = bands[i];
             pushMatrix();
-            translate(x, -h/2, z);
+            translate(x, -h/8, z);
             rotateY(theta);
-            box(-50, h, -50);
+            box(100, h / 2, 100);
             popMatrix();
+            if(!mousePressed)
+            {
+                circle(20, h *4, 100); 
+            }
+            
+            for( int j = 0; j < bands.length; j++)
+            {
+               // ellipse(Y, h, h / 2, h);
+                lights();
+                
+                
+
+            }
         }
       float angle = 0;
     
     }
- 
+
     
 }
