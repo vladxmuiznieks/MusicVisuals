@@ -77,7 +77,7 @@ public class VladsVisual extends Visual
             if(!mousePressed)
             {
                
-                fill(100);
+                fill(105);
                 pushMatrix();
                 stroke(255);
                 strokeWeight(1);
@@ -97,16 +97,23 @@ public class VladsVisual extends Visual
                 
             }
             else{
-                noFill();
+            noFill();
+            pushMatrix();
+            translate(-100, 0, 0);
+           box(smoothedBoxSize);
+            popMatrix();
+            pushMatrix();
+            translate(100, 0, 0);
+            strokeWeight(5); 
+            box(smoothedBoxSize);
+            popMatrix();
             }
             
             for( int j = 0; j < bands.length; j++)
             {
                 ellipse(Y, h, h / 2, Y);
                 lights();
-                
-                
-
+                stroke(210);
             }
         }
       float angle = 0;
