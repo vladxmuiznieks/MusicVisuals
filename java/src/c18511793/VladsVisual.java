@@ -31,11 +31,6 @@ public class VladsVisual extends Visual
         getAudioPlayer().play();
     }
 
-    public void keyPressed()
-    {
-
-    }
-
 
     float lerpedAverage = 0;
 
@@ -45,7 +40,6 @@ public class VladsVisual extends Visual
 
     public void draw()
     {
-
         calculateAverageAmplitude();
         try
         {
@@ -77,16 +71,38 @@ public class VladsVisual extends Visual
             pushMatrix();
             translate(x, -h/8, z);
             rotateY(theta);
-            box(100, h / 2, 100);
+            box(100, h, 100);
             popMatrix();
+
             if(!mousePressed)
             {
-                circle(20, h *4, 100); 
+               
+                fill(100);
+                pushMatrix();
+                stroke(255);
+                strokeWeight(1);
+                beginShape();
+                vertex(0, -50);
+                vertex(14, -20);
+                vertex(47, -15);
+                vertex(23, 7);
+                vertex(29, 40);
+                vertex(0, 25);
+                vertex(-29, 40);
+                vertex(-23, 7);
+                vertex(-47, -15);
+                vertex(-14, -20);
+                endShape(CLOSE);
+                popMatrix();
+                
+            }
+            else{
+                noFill();
             }
             
             for( int j = 0; j < bands.length; j++)
             {
-               // ellipse(Y, h, h / 2, h);
+                ellipse(Y, h, h / 2, Y);
                 lights();
                 
                 
@@ -96,6 +112,6 @@ public class VladsVisual extends Visual
       float angle = 0;
     
     }
-
+     
     
 }
