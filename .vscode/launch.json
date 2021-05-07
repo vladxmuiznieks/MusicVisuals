@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch GlueGenVersion",
+            "request": "launch",
+            "mainClass": "com.jogamp.common.GlueGenVersion",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
             "name": "Launch Main",
             "request": "launch",
             "mainClass": "c18511793.Main",

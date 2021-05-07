@@ -36,7 +36,7 @@ public class CubeVisual extends Visual
         setFrameSize(256);
 
         startMinim();
-        loadAudio("areyouready.mp3");
+        loadAudio("areyouready1.mp3");
         //getAp().play();
         //startListening(); 
         

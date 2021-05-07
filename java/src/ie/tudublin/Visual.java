@@ -24,14 +24,12 @@ public abstract class Visual extends PApplet
 	
 	
 	public void startMinim() 
-	{
+	{  
 		minim = new Minim(this);
-
 		fft = new FFT(frameSize, sampleRate);
 
 		bands = new float[(int) log2(frameSize)];
-  		smoothedBands = new float[bands.length];
-
+		smoothedBands = new float[bands.length];
 	}
 
 	float log2(float f) {
@@ -78,6 +76,7 @@ public abstract class Visual extends PApplet
 			smoothedBands[i] = lerp(smoothedBands[i], bands[i], 0.05f);
 		}
 	}
+	
 
 	public void startListening()
 	{
